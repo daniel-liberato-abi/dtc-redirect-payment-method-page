@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect Button</title>
+</head>
+<body>
+    <button id="redirectButton">Simulate Succes flow</button>
+
+    <script>
+        // Function to extract query parameters from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the value of the "redirectUrl" query parameter
+        const redirectUrl = getQueryParam("redirectUrl");
+
+        // Check if the "redirectUrl" parameter is present and not empty
+        if (redirectUrl && redirectUrl.trim() !== "") {
+            // Add a click event listener to the button
+            document.getElementById("redirectButton").addEventListener("click", function() {
+                // Redirect to the specified URL
+                window.location.href = redirectUrl;
+            });
+        } else {
+            // If "redirectUrl" is not provided or empty, display an error message
+            alert("Inform the 'redirectUrl' to be redirected when the button is clicked.");
+        }
+    </script>
+</body>
+</html>
+
